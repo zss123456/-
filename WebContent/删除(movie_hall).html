@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            #movie-hall-delete {
+                position: absolute;
+                display: block;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 600px;
+                height: 370px;
+                border: 1px slategray solid;
+                background-color: silver;
+                z-index: 1000;
+            }
+            #movie-hall-delete .drop-out {
+                display: flex;
+                height: 30px;
+                border-bottom: 1px white solid;
+                line-height: 30px;
+                font-family: 幼圆;
+                font-style: oblique;
+            }
+            #movie-hall-delete .drop-out p {
+                width: 530px;
+                margin: 0 0 0 20px;
+            }
+            #movie-hall-delete .drop-out a {
+                width: 50px;
+                text-decoration: none;
+                font-size: large;
+                font-weight: bold;
+                color: black;
+                text-align: center;
+                font-style: normal;
+            }
+            #movie-hall-delete .drop-out a:hover {
+                background-color: orangered;
+                color: white;
+            }
+            #movie-hall-delete .delete-content .delete-id {
+                margin-top: 20px;
+                padding-left: 20px;
+                height: 40px;
+            }
+            #movie-hall-delete .delete-content input {
+                outline: none;
+                padding: 0;
+                border: 0;
+                border-radius: 5px;
+                height: 28px;
+                font-size: 16px;
+            }
+            #movie-hall-delete .delete-id button,#movie-hall-delete .delete-select button{
+                outline: none;
+                padding: 0;
+                boeder: 0;
+                width: 50px;
+                height: 28px;
+                margin-left: 15px;
+                border-radius: 5px;
+            }
+            #movie-hall-delete .delete-content .delete-select {
+                padding-left: 20px;
+                margin-top: 20px;
+            }
+            #movie-hall-delete .delete-select select {
+                width: 150px;
+                height: 28px;
+                outline: none;
+                border-radius: 5px;
+            }
+            option {
+                min-heigth: 28px;
+            }
+            #movie-hall-delete .delete-select select option {
+                min-heigth: 28px;
+                height: 28px;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="movie-hall-delete">
+            <div class="drop-out">
+                <p>删除演出厅</p>
+                <a href="javascript:void(0)" id="log-off">×</a>
+            </div>
+            <div class="delete-content">
+                <div class="delete-id">
+                    <input type="text" placeholder="请输入演出厅ID">
+                    <button type="submit">删&nbsp;&nbsp;&nbsp;除</button>
+                </div>
+                <div class="delete-select">
+                    <select size="1" >
+                        <option>001号演出厅</option>
+                        <option>002号演出厅</option>
+                        <option>003号演出厅</option>
+                        <option>004号演出厅</option>
+                    </select>
+                    <button type="submit">删&nbsp;&nbsp;&nbsp;除</button>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var deleteLogOff = document.getElementById("log-off");
+            var deleteHall = document.getElementById("delete-hall");
+            deleteHall.onclick = function() {
+                document.getElementById("movie-hall-delete").style.display = "block";
+            }
+            deleteLogOff.onclick = function() {
+                document.getElementById("movie-hall-delete").style.display = "none";
+            }
+        </script>
+    </body>
+</html>

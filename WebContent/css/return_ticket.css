@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+#return-ticket {
+            	display: none;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 400px;
+                height: 240px;
+                margin: auto;
+                background-color: #6e5fba;
+                opacity: .9;
+                box-shadow: 0 0 20px slategray;
+                z-index: 1000;
+            }
+            #return-ticket ul {
+            	margin: 5px 0 0 55px ;
+            	padding: 0;
+            	display: flex;
+                flex-wrap: wrap;
+                width: 400px;
+            }
+            #return-ticket ul li {
+            	display: flex;
+            	width: 310px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            #return-ticket ul li input {
+            	outline: none;
+                height: 30px;
+                padding: 0 0 0 5px;
+                margin-left: 10px;
+                margin-right: 20px;
+             
+                border: 0;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+            #return-ticket button {
+            	position: relative;
+            	bottom: -12px;
+            	left: 180px;
+            	outline: none;
+                width: 60px;
+                height: 30px;
+                margin-right: 30px;
+                border: 0;
+                padding: 0;
+                border-radius: 10px;
+                font-size: 16px;
+                background-color: #5bc0de;
+                color: white;
+                box-shadow: 0 0 10px silver;
+            }
+            .drop-out {
+                display: flex;
+                height: 30px;
+                margin-bottom: -5px;
+                border-bottom: 1px white solid;
+                line-height: 30px;
+                font-family: 幼圆;
+                font-style: oblique;
+            }
+            #return-ticket .drop-out a{
+                width: 50px;
+                text-decoration: none;
+                font-size: large;
+                font-weight: bold;
+                color: black;
+                text-align: center;
+                font-style: normal;
+                margin-left: 318px;
+            }
+            #return-ticket .drop-out a:hover {
+                background-color: orangered;
+                color: white;
+            }

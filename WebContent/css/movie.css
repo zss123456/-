@@ -1,0 +1,109 @@
+/*
+*   影片样式
+*/
+
+.movie {
+    position: relative;
+    width: 900px;
+    /*height: 311px;*/
+    left: 100px;
+    margin-top: 50px;
+    /*background-color: #5bc0de;*/
+}
+.movie .movie-warp {
+	display: flex;
+	width: 900px;
+	flex-wrap: wrap;
+
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+.movie .movie-type {
+    width: 100%;
+    height: 35px;
+    border-bottom: 2px slategray solid;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    /*background-color: #00ff40;*/
+}
+.movie .movie-type ul {
+    display: flex;
+    width: 100%;
+    height: 35px;
+}
+.movie .movie-type ul li {
+    width: 120px;
+    height: 35px;
+    background-color: silver;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 宋体;
+    font-size: 20px;
+    color: #fff;
+    transition: .5s;
+}
+.movie .movie-type ul li:hover {
+    background-color: orangered;
+}
+.movie .movie-type ul li:nth-child(1) {
+    border-right: 2px white solid;
+}
+.father {
+    position: relative;
+    width: 160px;
+    height: 224px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    /*background-color: #5bc0de;*/
+}
+/*.movie .father:nth-child(5) {
+    margin-right: 0;
+}*/
+.movie .father .film-image{
+    width: 100%;
+    height: 224px;
+    overflow: hidden;
+}
+.movie .father img {
+    width: 100%;
+    height: 224px;
+}
+.child {
+    position: absolute;
+    top: -224px;
+    width: 160px;
+    height: 224px;
+    background: rgba(0,0,0,.5);
+    transition: .3s;
+}
+.movie .movie-warp .father .child-content span {
+    display: block;
+    width: 100%;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 宋体;
+    color: white;
+    font-size: 12px;
+}
+.movie .child-content {
+    width: 125px;
+    margin-left: 26px;
+    margin-top: 38px;
+}
+.movie .movie-warp .father .buy-tickets {
+    width: 100%;
+    height: 40px;
+    background-color: orangered;
+}
+.movie .movie-warp .father .buy-tickets span {
+    text-align: center;
+    font-size: 16px;
+}

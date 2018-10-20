@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>东方传媒影业</title>
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(22,24,28);
+            }
+            a {
+            	text-decoration: none;
+            	color: white;
+            }
+            ul {
+                 list-style: none;
+                 margin: 0;
+                 padding: 0;
+             }
+            .performance-plan {
+                width: 1200px;
+                margin: 50px auto;
+                background-color: white;
+            }
+            .performance-plan ul.performance-plan-item {
+                display: flex;
+                width: 1200px;
+                height: 50px;
+                margin: 0 auto;
+                background-color: silver;
+            }
+            .performance-plan ul.performance-plan-item li,.performance-plan ul#all-performance-plan li span{
+                display: block;
+                width: 200px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+            .performance-plan ul#all-performance-plan li span div {
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                margin: 10px auto;
+                text-align: center;
+                background-color: orangered;
+            }
+            .performance-plan ul#all-performance-plan li span div:hover {
+                opacity: .7;
+            }
+            
+            .performance-plan ul#all-performance-plan {
+                display: flex;
+                flex-wrap: wrap;
+                width: 1200px;
+                margin: 0 auto 100px;
+            }
+            .performance-plan ul#all-performance-plan li {
+                display: flex;
+                width: 1200px;
+                height: 50px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="nav">
+            <div class="logo">
+                <img src="TIM图片20180615070011.png" alt="东方影业集团">东方传媒影业
+            </div>
+            <ul class="title">
+                <li>
+                    <a href="main-interface.html"><h3>首&nbsp;&nbsp;页</h3></a>
+                </li>
+                <li>
+                    <a href="film.html"><h3>影&nbsp;&nbsp;片</h3></a>
+                    <ul class="list">
+                        <a href="film.html" ><li>影&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</li></a>
+                        <a href="javascript:void(0)" id="add-film"><li>添加影片</li></a>
+                        <a href="javascript:void(0)" id="revise-film"><li>修改影片</li></a>
+                        <a href="javascript:void(0)" id="delete-film"><li>删除影片</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="movie_hall.html"><h3>演出厅</h3></a>
+                    <ul class="list">
+                        <a href="movie_hall.html"><li>演&nbsp;出&nbsp;厅</li></a>
+                        <a href="javascript:void(0)" id="add-hall"><li>添加演出厅</li></a>
+                        <a href="javascript:void(0)" id="revise-hall"><li>修改演出厅</li></a>
+                        <a href="javascript:void(0)" id="delete-hall"><li>删除演出厅</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>票务管理</h3></a>
+                    <ul class="list">
+                        <a href="film.html"><li>售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                        <a href="javascript:void(0)" id="return"><li>退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>系统用户</h3></a>
+                    <ul class="list">
+                        <a href="tencent.html"><li>用户注册</li></a>
+                        <a href="删除账户.html"><li>注销用户</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>销售数据</h3></a>
+                </li>
+                <li>
+                    <a href="performance_plan.html"><h3>演出计划</h3></a>
+                    <ul class="list">
+                        <a href="performance_plan.html"><li>演出计划</li></a>
+                        <a href="javascript:void(0)" id="add-plan"><li>添加演出计划</li></a>
+                        <a href="javascript:void(0)" id="revise-plan"><li>修改演出计划</li></a>
+                        <a href="javascript:void(0)" id="delete-plan"><li>删除演出计划</li></a>
+                    </ul>
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+        <div class="performance-plan">
+            <ul class="performance-plan-item">
+                <li>影厅</li>
+                <li>影片</li>
+                <li>放映时间</li>
+                <li>退场时间</li>
+                <li>时长/分钟</li>
+            </ul>
+            <ul id="all-performance-plan">
+                <li>
+                    <span>001</span>
+                    <span>西小河的夏天</span>
+                    <span>13:35</span>
+                    <span>15:20</span>
+                    <span>105</span>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var allPerformancePlan = document.getElementById("all-performance-plan");
+
+            function createPerformancePlan(datalist) {
+                var str = "";
+
+                for(var i = 0,item;item = datalist[i++];) {
+                        str += `<li>
+                        <span>${item.id}</span>
+                        <span>${item.name}</span>
+                        <span>${item.start}</span>
+                        <span>${item.end}</span>
+                        <span>${item.time}</span>
+                        <span><div class="click-sale-tickle"><a href="javascript:void(0)">点击购票</a></div></span>
+
+                    </li>`
+                }
+                allPerformancePlan.innerHTML = str;
+                var plans = allPerformancePlan.getElementsByTagName("li");
+                for(var i = 0,len = plans.length;i < len;i++) {
+                    if(!(i%2)) {
+                        plans[i].style.backgroundColor = "white";
+                    } else {
+                        plans[i].style.backgroundColor = "rgba(178,181,178,0.51)";
+                    }
+                }
+            }
+
+            function getSalePlanList() {
+                var planListXhr = new XMLHttpRequest();
+                planListXhr.open("POST","http://localhost:8080/TTMS/seat_return_plan_servlet",true);
+                planListXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                planListXhr.send("name="+CookieUtil.get("name"));
+                planListXhr.onreadystatechange = function() {
+                    if(planListXhr.readyState === 4 && planListXhr.status === 200) {
+                        var datalist = JSON.parse(planListXhr.responseText);
+                        createPerformancePlan(datalist);
+                        console.log(datalist);
+                        
+                        let clickSaleTicket = allPerformancePlan.getElementsByTagName("div");
+                        let num = 0;
+                        for(var i = 0,len = clickSaleTicket.length;i < len;i++) {
+                            clickSaleTicket[i].index = i;
+                            clickSaleTicket[i].onclick = function() {
+
+                                num = this.index;
+                                //console.log(datalist[num].movie);
+                                //console.log(datalist[num].id);
+                                CookieUtil.set("id",datalist[num].id);
+                                CookieUtil.set("start",datalist[num].start);
+                                window.location = "sale_tickets.html";
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            
+            
+
+            
+            /*
+             * cookie
+             * */
+             var CookieUtil = {
+                 get: function(name) {
+                     var cookieName = encodeURIComponent(name) + "=",
+                         cookieStart = document.cookie.indexOf(cookieName),
+                         cookieValue = null;
+                     if(cookieStart > -1) {
+                         var cookieEnd = document.cookie.indexOf(";",cookieStart);
+                         if(cookieEnd == -1) {
+                             cookieEnd = document.cookie.length;
+                         }
+                         cookieValue = decodeURIComponent(document.cookie.substring(cookieStart
+                             +cookieName.length,cookieEnd));
+                     }
+                     return cookieValue;
+                 },
+                 set: function(name,value) {
+                     var cookieText = encodeURIComponent(name) + "=" +
+                             encodeURIComponent(value);
+                     document.cookie = cookieText;
+                 }
+             };
+            
+            //console.log(CookieUtil.get("name"));
+            getSalePlanList();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>登录-腾讯云</title>
+	    <link href="Tencent.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="tc">
+		    <div class="xh">
+		    东方传媒注册系统
+		        <div class="thu">
+		            <input type="button" value="×">
+		        </div>
+		    </div>
+		</div>
+		<div class="aa">
+		    <div class="def">
+		        <h1>东方传媒</h1>
+		    </div>
+		    <div class="bb">
+		        <div class="bcd"></div>
+		        <div>
+		            <h2>年中特惠</h2>
+		            <div class="cde">
+		                <li> 年会员充值5折起</li>
+		                <li>会员秒杀观影礼包</li>
+		                <li>585元代金券礼包免费领</li>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="cc">
+		        <input  class="abc" type="button" value="立即充值">
+		    </div>
+		</div>
+		<div class="dd">
+		    <div class="efg">用户注册
+		        <li><input class="qq" type="text" id="user-name" placeholder="用户名"></li>
+		        <li><input class="ww" type="password" id="password" placeholder="输入密码 8-16位字符"></li>
+		        <li><input class="rr" type="text" id="email" placeholder="邮箱地址"></li>
+		        <li><input class="sjh" type="text" id="telephone" placeholder="输入手机号"></li>
+		        <li><input class="hq" type="button" value="获取验证码"></li>
+		        <li><input class="sr" type="text" placeholder="输入验证码"></li>
+		        <li>
+		            <div>
+		                <li><input class="uu" type="image" src="ten.jpg" alt="qq注册"></li>
+		                <li><input class="oo" type="image" src="wei.jpg" alt="微信注册"></li>
+		            </div>
+		        </li>
+		        <li>
+		            <div> <input class="we" id="finish" type="button" value="完成"></div>
+		        </li>
+		        <li>
+		            <div><input class="ew" id="return-main" type="button" value="返回主页"></div>
+		        </li>
+		    </div>
+		</div>
+		<div class="ee">
+		    <div class="family">Copyright © 2013-2018 dF media. All Rights Reserved. 东方传媒版权所有</div>
+		    <div class="lis" id="lis">中国站-简体中文
+		        <div class="list">
+		            <span><a class="lit" href="#">中国站-简体中文</a></span>
+		            <span><a class="mm" href="#">中国站-English</a></span>
+		            <span><a class="nn" href="#">International</a></span>
+		        </div>
+		    </div>
+		</div>
+		<script type="text/javascript">
+		
+			var userName = document.getElementById("user-name");
+			var oPassword = document.getElementById("password");
+			var oEmail = document.getElementById("email");
+			var telePhone = document.getElementById("telephone");
+			var oFinish = document.getElementById("finish");
+			var returnMain = document.getElementById("return-main");
+			
+			returnMain.onclick = function() {
+				window.location = "main-interface.html";
+			}
+		
+			oFinish.onclick = function() {
+				var registerXhr = new XMLHttpRequest();
+				registerXhr.open("POST","http://localhost:8080/TTMS/login_insert_servlet",true);
+				registerXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+				registerXhr.send("name="+userName.value+"&password="+oPassword.value+"&telephone="
+						+telePhone.value+"&email="+oEmail.value);
+				registerXhr.onreadystatechange = function() {
+	                if(registerXhr.readyState === 4 && registerXhr.status === 200) {
+	                	if(registerXhr.responseText) {
+	                		window.location = "login.jsp";
+	                	}
+	                }
+				}
+			}
+		</script>
+	</body>
+</html>

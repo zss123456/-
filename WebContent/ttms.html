@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            .father {
+                position: relative;
+                width: 160px;
+                height: 264px;
+                overflow: hidden;
+                background-color: orangered;
+                margin: 200px auto;
+            }
+            img {
+                width: 100%;
+                height: 224px;
+            }
+            a {
+                text-decoration: none;
+            }
+            .child {
+                position: absolute;
+                top: -224px;
+                width: 160px;
+                height: 224px;
+                background: rgba(0,0,0,.5);
+                transition: .3s;
+            }
+            span {
+                display: block;
+                width: 100%;
+                line-height: 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-family: 宋体;
+                color: white;
+                font-size: 12px;
+            }
+            .child-content {
+                width: 125px;
+                margin-left: 26px;
+                margin-top: 38px;
+            }
+            .father .buy-tickets {
+                width: 100%;
+                height: 40px;
+                background-color: orangered;
+            }
+            .father .buy-tickets span {
+                text-align: center;
+                font-size: 16px;
+            }
+        </style>
+    <body>
+        <div class="father">
+            <img src="https://img.alicdn.com/bao/uploaded/i3/TB1gr2sf3KTBuNkSne1XXaJoXXa_.jpg_160x240.jpg" alt="">
+            <a href="javascript:void(0)"><div class="buy-tickets">
+                <span>立即购票</span>
+            </div></a>
+            <div class="child">
+                <div class="child-content">
+                    <span>导演：苏伦</span>
+                    <span>主演：雷佳音,佟丽娅,陶虹,徐峥</span>
+                    <span>类型：喜剧,奇幻</span>
+                    <span>地区：中国大陆</span>
+                    <span>语言：汉语普通话</span>
+                    <span>片长：101分钟</span>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            var oFather = document.getElementsByClassName("father")[0];
+            var oChild = document.getElementsByClassName("child")[0];
+
+            oFather.onmouseenter = function() {
+                oChild.style.transition = 0.3+"s";
+                oChild.style.top = 0;
+                this.onmouseleave = function() {
+                    oChild.style.top = -224 + "px";
+                    oChild.style.transition = 0.2 + "s";
+                }
+            }
+        </script>
+    </body>
+</html>

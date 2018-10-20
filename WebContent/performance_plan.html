@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>东方传媒影业</title>
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/plan.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(22,24,28);
+            }
+            ul {
+                 list-style: none;
+                 margin: 0;
+                 padding: 0;
+             }
+            .performance-plan {
+                width: 1200px;
+                margin: 50px auto;
+                background-color: white;
+            }
+            .performance-plan ul.performance-plan-item {
+                display: flex;
+                width: 1200px;
+                height: 50px;
+                margin: 0 auto;
+                background-color: silver;
+            }
+            .performance-plan ul.performance-plan-item li,.performance-plan ul#all-performance-plan li span{
+                display: block;
+                width: 250px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+            .performance-plan ul#all-performance-plan {
+                display: flex;
+                flex-wrap: wrap;
+                width: 1200px;
+                margin: 0 auto 100px;
+            }
+            .performance-plan ul#all-performance-plan li {
+                display: flex;
+                width: 1200px;
+                height: 50px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="nav">
+            <div class="logo">
+                <img src="TIM图片20180615070011.png" alt="东方影业集团">东方传媒影业
+            </div>
+            <ul class="title">
+                <li>
+                    <a href="main-interface.html"><h3>首&nbsp;&nbsp;页</h3></a>
+                </li>
+                <li>
+                    <a href="film.html"><h3>影&nbsp;&nbsp;片</h3></a>
+                    <ul class="list">
+                        <a href="film.html" ><li>影&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</li></a>
+                        <a href="javascript:void(0)" id="add-film"><li>添加影片</li></a>
+                        <a href="javascript:void(0)" id="revise-film"><li>修改影片</li></a>
+                        <a href="javascript:void(0)" id="delete-film"><li>删除影片</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="movie_hall.html"><h3>演出厅</h3></a>
+                    <ul class="list">
+                        <a href="movie_hall.html"><li>演&nbsp;出&nbsp;厅</li></a>
+                        <a href="javascript:void(0)" id="add-hall"><li>添加演出厅</li></a>
+                        <a href="javascript:void(0)" id="revise-hall"><li>修改演出厅</li></a>
+                        <a href="javascript:void(0)" id="delete-hall"><li>删除演出厅</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>票务管理</h3></a>
+                    <ul class="list">
+                        <a href="film.html"><li>售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                        <a href="javascript:void(0)" id="return"><li>退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>系统用户</h3></a>
+                    <ul class="list">
+                        <a href="tencent.html"><li>用户注册</li></a>
+                        <a href="删除账户.html"><li>注销用户</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>销售数据</h3></a>
+                </li>
+                <li>
+                    <a href="performance_plan.html"><h3>演出计划</h3></a>
+                    <ul class="list">
+                        <a href="performance_plan.html"><li>演出计划</li></a>
+                        <a href="javascript:void(0)" id="add-plan"><li>添加演出计划</li></a>
+                        <a href="javascript:void(0)" id="revise-plan"><li>修改演出计划</li></a>
+                        <a href="javascript:void(0)" id="delete-plan"><li>删除演出计划</li></a>
+                    </ul>
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+        <div class="performance-plan">
+            <ul class="performance-plan-item">
+                <li>影厅</li>
+                <li>影片</li>
+                <li>放映时间</li>
+                <li>退场时间</li>
+                <li>时长/分钟</li>
+            </ul>
+            <ul id="all-performance-plan">
+                <li>
+                    <span>001</span>
+                    <span>西小河的夏天</span>
+                    <span>13:35</span>
+                    <span>15:20</span>
+                    <span>105</span>
+                </li>
+            </ul>
+        </div>
+        <div id="plan-add">
+            <div class="drop-out">
+                <p >添加演出计划</p>
+                <a href="javascript:void(0)" id="log-off-plan">×</a>
+            </div>
+            <ul class="plan-item">
+                <li>影厅</li>
+                <li>影片</li>
+                <li>放映时间</li>
+            </ul>
+            <ul id="plan-name">
+                <li>
+                    <select id="add-movie-name"></select>
+                </li>
+                <li>
+                    <select id="add-film-name"></select>
+                </li>
+                <li>
+                    <select id="add-start-time">
+                        <option value=0>00:00</option>
+                        <option value=3>03:00</option>
+                        <option value=6>06:00</option>
+                        <option value=9>09:00</option>
+                        <option value=12>12:00</option>
+                        <option value=15>15:00</option>
+                        <option value=18>18:00</option>
+                        <option value=21>21:00</option>
+                        <option value=24>24:00</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="plan-time">
+               	 影片时长<input type="text" id="add-film-time" readonly="readonly" value="">
+                                              退场时间<input type="text" id="add-end-time" readonly="readonly" value="">
+            </div>
+            <div class="plan-content-confirm">
+                <button type="submit" id="plan-confirm">提&nbsp;交</button>
+            </div>
+        </div>
+        <div id="performance-plan-delete">
+            <div class="drop-out">
+                <p id="plan-operation-type">删除演出计划</p>
+                <a href="javascript:void(0)" id="log-delete-plan">×</a>
+            </div>
+            <ul class="plan-information">
+                <li>影厅</li>
+                <li>放映时间</li>
+            </ul>
+            <ul class="plan-information">
+                <li>
+                    <select id="delete-movie-name"></select>
+                </li>
+                <li>
+                    <select id="delete-start-time">
+                        <option value=0>00:00</option>
+                        <option value=3>03:00</option>
+                        <option value=6>06:00</option>
+                        <option value=9>09:00</option>
+                        <option value=12>12:00</option>
+                        <option value=15>15:00</option>
+                        <option value=18>18:00</option>
+                        <option value=21>21:00</option>
+                        <option value=24>24:00</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="plan-content-confirm">
+                <button type="submit" id="delete-plan-confirm">提&nbsp;交</button>
+                <button type="submit" id="revise-plan-confirm">确&nbsp;认</button>
+            </div>
+        </div>
+        <div id="plan-revise">
+            <div class="drop-out">
+                <p>修改演出计划</p>
+                <a href="javascript:void(0)" id="log-revise-plan">×</a>
+            </div>
+            <ul class="plan-item">
+                <li>影厅</li>
+                <li>影片</li>
+                <li>放映时间</li>
+            </ul>
+            <ul id="revise-plan-name">
+                <li>
+                    <select id="reviae-movie-name"></select>
+                </li>
+                <li>
+                    <select id="revise-plan-film"></select>
+                </li>
+                <li>
+                    <select id="revise-start-time">
+                        <option value=0>00:00</option>
+                        <option value=3>03:00</option>
+                        <option value=6>06:00</option>
+                        <option value=9>09:00</option>
+                        <option value=12>12:00</option>
+                        <option value=15>15:00</option>
+                        <option value=18>18:00</option>
+                        <option value=21>21:00</option>
+                        <option value=24>24:00</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="plan-time">
+               	 影片时长<input type="text" id="revise-film-time" readonly="readonly" value="">
+                                              退场时间<input type="text" id="revise-end-time" readonly="readonly" value="">
+            </div>
+            <div class="plan-content-confirm">
+                <button type="submit" id="plan-revise-confirm">修&nbsp;改</button>
+            </div>
+        </div>
+        <script src="js/plan.js"></script>
+        <script type="text/javascript">
+            var allPerformancePlan = document.getElementById("all-performance-plan");
+
+            function createPerformancePlan(datalist) {
+                var str = "";
+
+                for(var i = 0,item;item = datalist[i++];) {
+                        str += `<li>
+                        <span>${item.id}</span>
+                        <span>${item.name}</span>
+                        <span>${item.start}</span>
+                        <span>${item.end}</span>
+                        <span>${item.time}</span>
+                    </li>`
+                }
+                allPerformancePlan.innerHTML = str;
+                var plans = allPerformancePlan.getElementsByTagName("li");
+                for(var i = 0,len = plans.length;i < len;i++) {
+                    if(!(i%2)) {
+                        plans[i].style.backgroundColor = "white";
+                    } else {
+                        plans[i].style.backgroundColor = "rgba(178,181,178,0.51)";
+                    }
+                }
+            }
+
+            var datalist = [
+                {   movie: "001",
+                     film: "西小河的夏天",
+                     startTime: "13:45",
+                     endTime: "15:30",
+                     allTime: 105
+                },
+                {   movie: "001",
+                    film: "西小河的夏天",
+                    startTime: "16:00",
+                    endTime: "17:45",
+                    allTime: 105
+                },
+                {   movie: "002",
+                    film: "复仇者联盟3",
+                    startTime: "12:35",
+                    endTime: "14:50",
+                    allTime: 135
+                },
+                {   movie: "002",
+                    film: "复仇者联盟3",
+                    startTime: "15:10",
+                    endTime: "17:25",
+                    allTime: 135
+                },
+                {   movie: "003",
+                    film: "侏罗纪世界2",
+                    startTime: "09:10",
+                    endTime: "11:40",
+                    allTime: 150
+                },
+                {   movie: "004",
+                    film: "侏罗纪世界3",
+                    startTime: "12:20",
+                    endTime: "14:50",
+                    allTime: 150
+                },
+                {   movie: "005",
+                    film: "金蝉脱壳2",
+                    startTime: "14:40",
+                    endTime: "17:05",
+                    allTime: 145
+                },
+                {   movie: "005",
+                    film: "金蝉脱壳2",
+                    startTime: "17:20",
+                    endTime: "19:45",
+                    allTime: 145
+                }
+            ];
+
+            function getPerformancePlanList() {
+                var planListXhr = new XMLHttpRequest();
+                planListXhr.open("GET","http://localhost:8080/TTMS/plan_findAll_servlet",true);
+                planListXhr.send(null);
+                planListXhr.onreadystatechange = function() {
+                    if(planListXhr.readyState === 4 && planListXhr.status === 200) {
+                        var datalist = JSON.parse(planListXhr.responseText);
+                        createPerformancePlan(datalist);
+                        console.log(datalist);
+                    }
+                }
+            }
+            getPerformancePlanList();
+            //createPerformancePlan(datalist);
+        </script>
+    </body>
+</html>

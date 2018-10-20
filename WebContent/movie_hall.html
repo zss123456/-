@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/movie_hall_add.css">
+        <link rel="stylesheet" type="text/css" href="css/revise.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(22,24,28);
+            }
+            .movieHall-warp {
+                width: 1200px;
+                margin: 100px auto;
+            }
+            .movieHall {
+                position: relative;
+                width: 1200px;
+                height: auto;
+                border-top: 2px silver solid;
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                text-decoration: none;
+            }
+            p,span {
+                margin: 0;
+                font-size: 16px;
+            }
+            p {
+                font-family: 宋体;
+            }
+            span {
+                font-family: 楷体;
+            }
+            input {
+                width: 160px;
+                height: 20px;
+                outline: none;
+                border-radius: 5px;
+                margin-right: 3px;
+                font-family: 宋体;
+                font-size: 16px;
+            }
+            .movieHall-warp .movieHall-search button::before {
+                background-image: url("images/cf597dd480635ad63a8577efdc077020.jpg");
+            }
+            .movieHall-warp .movieHall-search {
+                margin-left: 50px;
+                margin-bottom: 5px;
+            }
+            .movieHall .movie-content {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 270px;
+                height: 500px;
+                border: 1px skyblue solid;
+            }
+            .movieHall ul.movie-hall-item {
+            	position: absolute;
+            	top: 20px;
+            	left: 0;
+                display: flex;
+                width: 800px;
+                height: 50px;
+                margin: 0 auto;
+                background-color: silver;
+            }
+            .movieHall ul.movie-hall-item li,.movieHall ul#movieHall-list li span{
+                display: block;
+                width: 160px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+            .movieHall ul#movieHall-list li {
+                display: flex;
+                flex-wrap: wrap;
+                width: 800px;
+                height: 50px;
+                background-color: white;
+            }
+            .movieHall ul#movieHall-list {
+                /*display: flex;
+                flex-wrap: wrap;*/
+                position: absolute;
+            	top: 70px;
+            	left: 0;
+                width: 800px;
+                margin: 0 auto 100px;
+            }
+            
+        </style>
+    </head>
+    <body>
+    	<div class="nav">
+            <div class="logo">
+                <img src="TIM图片20180615070011.png" alt="东方影业集团">东方传媒影业
+            </div>
+            <ul class="title">
+                <li>
+                    <a href="main-interface.html"><h3>首&nbsp;&nbsp;页</h3></a>
+                </li>
+                <li>
+                    <a href="film.html"><h3>影&nbsp;&nbsp;片</h3></a>
+                    <ul class="list">
+                        <a href="film.html" ><li>影&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</li></a>
+                        <a href="javascript:void(0)" id="add-film"><li>添加影片</li></a>
+                        <a href="javascript:void(0)" id="revise-film"><li>修改影片</li></a>
+                        <a href="javascript:void(0)" id="delete-film"><li>删除影片</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="movie_hall.html"><h3>演出厅</h3></a>
+                    <ul class="list">
+                        <a href="movie_hall.html"><li>演&nbsp;出&nbsp;厅</li></a>
+                        <a href="javascript:void(0)" id="add-hall"><li>添加演出厅</li></a>
+                        <a href="javascript:void(0)" id="revise-hall"><li>修改演出厅</li></a>
+                        <a href="javascript:void(0)" id="delete-hall"><li>删除演出厅</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>票务管理</h3></a>
+                    <ul class="list">
+                        <a href="film.html"><li>售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                        <a href="javascript:void(0)" id="return"><li>退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>系统用户</h3></a>
+                    <ul class="list">
+                        <a href="tencent.html"><li>用户注册</li></a>
+                        <a href="删除账户.html"><li>注销用户</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>销售数据</h3></a>
+                </li>
+                <li>
+                    <a href="performance_plan.html"><h3>演出计划</h3></a>
+                    <ul class="list">
+                        <a href="performance_plan.html"><li>演出计划</li></a>
+                        <a href="javascript:void(0)" id="add-plan"><li>添加演出计划</li></a>
+                        <a href="javascript:void(0)" id="revise-plan"><li>修改演出计划</li></a>
+                        <a href="javascript:void(0)" id="delete-plan"><li>删除演出计划</li></a>
+                    </ul>
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+        <div class="movieHall-warp">
+            <div class="movieHall-search">
+                <input type="text" />
+                <button id="btn-query">点击查询</button>
+            </div>
+            <div class="movieHall">
+                <ul class="movie-hall-item">
+	                <li>影厅</li>
+	                <li>行数</li>
+	                <li>列数</li>
+	                <li>影厅序号</li>
+	                <li>影厅描述</li>
+            	</ul>
+	            <ul id="movieHall-list">
+	                <li>
+	                    <span>001</span>
+	                    <span>11</span>
+	                    <span>12</span>
+	                    <span>1</span>
+	                    <span>3DMAX影厅</span>
+	                </li>
+	            </ul>
+                <div class="movie-content"></div>
+            </div>
+        </div>
+        <div id="movie-hall-add">
+            <div class="drop-out">
+                <p id="operation-type">添加演出厅</p>
+                <a href="javascript:void(0)" id="log-off">×</a>
+            </div>
+            <div class="add-content">
+                <div class="add-name">演出厅名&nbsp;&nbsp;&nbsp;<input type="text" id="hall-name"></div>
+                <div class="add-seats">
+                    <div class="row-content">行数&nbsp;&nbsp;&nbsp;<input type="text" id="hall-rows"></div>
+                    <div class="column-content">列数&nbsp;&nbsp;&nbsp;<input type="text" id="hall-column"></div>
+                    <div class="seats-content">演出厅序号&nbsp;&nbsp;&nbsp;<input type="text" id="hall-seats"></div>
+                </div>
+                <div class="description-content">
+                    演出厅描述
+                    <div><textarea name="textarea" rows="4" id="hall-description"></textarea></div>
+                </div>
+                <div class="btn-content">
+                    <ul>
+                        <li><button type="reset" id="btn-reset">重&nbsp;&nbsp;&nbsp;置</button></li>
+                        <li><button type="submit" id="btn-revise">修&nbsp;&nbsp;&nbsp;改</button></li>
+                        <li><button type="submit" id="btn-submit">提&nbsp;&nbsp;&nbsp;交</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="movie-hall-delete">
+            <div class="drop-out">
+                <p>删除演出厅</p>
+                <a href="javascript:void(0)" id="delete-log-off">×</a>
+            </div>
+            <div class="delete-content">
+                <div class="delete-id">
+                    <input type="text" id="delete-content-id" placeholder="请输入演出厅ID">
+                    <button type="submit" id="delete-start">删&nbsp;&nbsp;&nbsp;除</button>
+                </div>
+                <div class="delete-select">
+                    <select size="1" >
+                        <option>001号演出厅</option>
+                        <option>002号演出厅</option>
+                        <option>003号演出厅</option>
+                        <option>004号演出厅</option>
+                    </select>
+                    <button type="submit">删&nbsp;&nbsp;&nbsp;除</button>
+                </div>
+            </div>
+        </div>
+        <div id="movie-hall-revise">
+            <a href="javascript:void(0)" id="revise-log-off">×</a>
+            <div>
+                <input type="text" id="revise-content" placeholder="请输入要修改演出厅的ID/序号">
+                <button type="submit" id="confirm-revise">确&nbsp;认</button>
+            </div>
+        </div>
+        <script src="js/movie_hall_add.js"></script>
+        <script type="text/javascript">
+            var oUl = document.getElementById("movieHall-list");
+            
+            var btnQuery = document.getElementById("btn-query");
+
+            /*
+            * 动态生成演出厅列表
+            * */
+
+            function createMovieHall(dataList) {
+                var str = "";
+                
+                for(var i = 0,item;item = dataList[i++];) {
+	                    str += `<li>
+	                    <span>${item.name}</span>
+	                    <span>${item.rows}</span>
+	                    <span>${item.cols}</span>
+	                    <span>${item.id}</span>
+	                    <span>${item.desc}</span>
+	                </li>`
+                }
+                oUl.innerHTML = str;
+                var allMovieHalls = oUl.getElementsByTagName("li");
+                for(var i = 0,len = allMovieHalls.length;i < len;i++) {
+                	if(!(i%2)) {
+                		allMovieHalls[i].style.backgroundColor = "white";
+                	} else {
+                		allMovieHalls[i].style.backgroundColor = "rgba(178,181,178,0.51)";
+                	}
+                }
+            }
+            
+            function getMovieList() {
+            	var getMovieXhr = new XMLHttpRequest();
+            	getMovieXhr.open("GET","http://localhost:8080/TTMS/theatre_findall_servlet",true);
+            	getMovieXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            	getMovieXhr.send(null);
+            	getMovieXhr.onreadystatechange = function() {
+                    if(getMovieXhr.status === 200 && getMovieXhr.readyState === 4) {
+                   	 	var datalist = JSON.parse(getMovieXhr.responseText);
+                   	 	createMovieHall(datalist);
+                    }
+                }
+            }
+            
+            getMovieList();
+
+        </script>
+    </body>
+</html>

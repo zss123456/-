@@ -1,0 +1,79 @@
+/*
+            *   轮播图样式
+            */
+
+#pic img{
+    vertical-align: middle;
+    border: 0;
+    width: 1300px;
+    height: 480px;
+}
+#wrap{
+    width:1300px;
+    height:480px;
+    margin: 20px auto;
+    position:relative;
+    overflow:hidden;
+    z-index: 1;
+}
+#pic{
+    position: absolute;
+    left: -1300px;
+    top: 0;
+    width: 9100px;
+}
+#pic div{
+    float:left;
+}
+#pic div a{
+    position: relative;
+    display: block;
+}
+#tab{
+    width: 520px;
+}
+#tab ul{
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    margin-left: -33px;
+    background-color: rgba(255,255,255,.3);
+    border-radius: 10px;
+}
+#tab ul li{
+    height:9px;
+    width:9px;
+    list-style:none;
+    float:left;
+    background:#B7B7B7;
+    border-radius:50%;
+    text-align:center;
+    line-height:20px;
+    margin:2px;
+    cursor:pointer;
+}
+#tab ul li.on{
+    background:#f60;
+}
+#tab .slider-page{
+    /* display: none; */
+}
+#tab .slider-page a{
+    position:absolute;
+    top: 50%;
+    width:24px;
+    height:36px;
+    margin-top: -18px;
+    text-decoration:none;
+    line-height:36px;
+    text-align:center;
+    font-size:20px;
+    color:#fff;
+    background:rgba(0,0,0,.2);
+}
+#tab .slider-prev{
+    left: 0;
+}
+#tab .slider-next{
+    right: 0;
+}

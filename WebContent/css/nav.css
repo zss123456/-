@@ -1,0 +1,103 @@
+.nav {
+    display: flex;
+    position: relative;
+    width: 1200px;
+    height: 50px;
+    margin: 10px auto;
+    background: silver;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+h3 {
+    margin: 0;
+    text-align: center;
+    font-family: 宋体;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+}
+.nav::before {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: 8px;
+    left: -17px;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(22,24,28);
+    transform: rotateZ(45deg);
+}
+.nav::after {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: 8px;
+    right: -17px;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(22,24,28);
+    transform: rotateZ(45deg);
+}
+.nav .logo {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    border-right: 1px white solid;
+    margin-left: 35px;
+    line-height: 50px;
+    font-family: 华文新魏;
+    color: cornflowerblue;
+    font-size: 22px;
+}
+
+.nav .logo img {
+    width: 50px;
+    height: 100%;
+    margin-right:10px;
+    border-radius: 50%;
+}
+.nav ul.title{
+    display: flex;
+    margin-left: 42px;
+    background-color: white;
+}
+.nav li {
+    width: 120px;
+    height: 50px;
+    background-color: silver;
+    line-height: 50px;
+    vertical-align: middle;
+}
+.nav ul.title li {
+    margin-right: 2px;
+    transition: .5s;
+    z-index: 2;
+}
+.nav ul.title li:hover {
+    background-color: #373737;
+}
+.nav ul.title li:nth-child(6) {
+    border: 0;
+}
+.nav ul.title ul.list {
+    display: none;
+    box-shadow: 0 0 12px slategray;
+}
+.nav ul.title ul.list li {
+    transition: .5s;
+    background-color: silver;
+    border-top: 2px white solid;
+    text-align: center;
+    color: white;
+}
+.nav ul.title ul.list li:hover {
+    background-color: #373737;
+}
+.nav ul.title li:hover > ul.list {
+    display: block;
+}

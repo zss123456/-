@@ -1,0 +1,229 @@
+
+/*
+    添加演出厅样式
+*/
+#movie-hall-add {
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+    height: 370px;
+    border: 1px slategray solid;
+    background-color: #6e5fba;
+    opacity: .9;
+    z-index: 1000;
+}
+.drop-out {
+    display: flex;
+    height: 30px;
+    border-bottom: 1px white solid;
+    line-height: 30px;
+    font-family: 幼圆;
+    font-style: oblique;
+}
+#movie-hall-add .drop-out p {
+    width: 530px;
+    margin: 0 0 0 20px;
+}
+#movie-hall-add .drop-out a {
+    width: 50px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-style: normal;
+}
+#movie-hall-add .add-content input {
+    outline: none;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    height: 28px;
+    font-size: 16px;
+}
+#movie-hall-add .drop-out a:hover {
+    background-color: orangered;
+    color: white;
+}
+
+#movie-hall-add .add-content .add-name {
+    font-family: 微软雅黑;
+}
+#movie-hall-add .add-content .add-name {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+
+}
+#movie-revise-content .add-content .add-name {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+
+}
+#movie-hall-add .add-content .add-seats {
+    display: flex;
+    margin-top: 20px;
+}
+#movie-hall-add .add-seats input {
+    width: 70px;
+}
+#movie-hall-add .add-seats div {
+    margin-right: 60px;
+}
+textarea {
+    width: 500px;
+    resize: none;
+    margin-top: 10px;
+    outline: none;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#movie-hall-add .add-content .description-content {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+#movie-hall-add .btn-content ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#movie-hall-add .add-content .btn-content {
+    margin-top: 50px;
+    padding-left: 100px;
+}
+#movie-hall-add .btn-content ul li {
+    width: 50px;
+    margin-right: 50px;
+}
+#movie-hall-add .add-content .btn-content button {
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    background-color: skyblue;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 10px slategray;
+}
+#movie-hall-add .add-content .btn-content button:hover {
+    background-color: orangered;
+}
+
+/*
+    删除演出厅样式
+*/
+#movie-hall-delete {
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+    height: 370px;
+    border: 1px slategray solid;
+    background-color: #6e5fba;
+    opacity: .9;
+    z-index: 1000;
+}
+#movie-hall-delete .drop-out {
+    display: flex;
+    height: 30px;
+    border-bottom: 1px white solid;
+    line-height: 30px;
+    font-family: 幼圆;
+    font-style: oblique;
+}
+#movie-hall-delete .drop-out p {
+    width: 530px;
+    margin: 0 0 0 20px;
+}
+#movie-hall-delete .drop-out a {
+    width: 50px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-style: normal;
+}
+#movie-hall-delete .drop-out a:hover {
+    background-color: orangered;
+    color: white;
+}
+#movie-hall-delete .delete-content .delete-id {
+    margin-top: 20px;
+    padding-left: 20px;
+    height: 40px;
+}
+#movie-hall-delete .delete-content input {
+    outline: none;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    height: 28px;
+    font-size: 16px;
+}
+#movie-hall-delete .delete-id button,#movie-hall-delete .delete-select button{
+    outline: none;
+    padding: 0;
+    boeder: 0;
+    width: 50px;
+    height: 28px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+#movie-hall-delete .delete-content .delete-select {
+    padding-left: 20px;
+    margin-top: 20px;
+}
+#movie-hall-delete .delete-select select {
+    width: 150px;
+    height: 28px;
+    outline: none;
+    border-radius: 5px;
+}
+option {
+    min-heigth: 28px;
+}
+#movie-hall-delete .delete-select select option {
+    min-heigth: 28px;
+    height: 28px;
+    border-radius: 5px;
+}
+
+/*
+	弹出式窗口
+*/
+#turn-off {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 150px;
+	height: 82px;
+	text-align: center;
+	line-height: 82px;
+	background-color: #6e5fba;
+	border-radius: 15px;
+	color: white;
+	opacity: 0;
+	transition: .7s;
+	z-index: 1000;
+}
+
+/*
+*	修改演出厅样式
+*/
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/movie.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/film.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(22,24,28);
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="nav">
+            <div class="logo">
+                <img src="TIM图片20180615070011.png" alt="东方影业集团">东方传媒影业
+            </div>
+            <ul class="title">
+                <li>
+                    <a href="main-interface.html"><h3>首&nbsp;&nbsp;页</h3></a>
+                </li>
+                <li>
+                    <a href="film.html"><h3>影&nbsp;&nbsp;片</h3></a>
+                    <ul class="list">
+                        <a href="film.html" ><li>影&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</li></a>
+                        <a href="javascript:void(0)" id="add-film"><li>添加影片</li></a>
+                        <a href="javascript:void(0)" id="revise-film"><li>修改影片</li></a>
+                        <a href="javascript:void(0)" id="delete-film"><li>删除影片</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="movie_hall.html"><h3>演出厅</h3></a>
+                    <ul class="list">
+                        <a href="movie_hall.html"><li>演&nbsp;出&nbsp;厅</li></a>
+                        <a href="javascript:void(0)" id="add-hall"><li>添加演出厅</li></a>
+                        <a href="javascript:void(0)" id="revise-hall"><li>修改演出厅</li></a>
+                        <a href="javascript:void(0)" id="delete-hall"><li>删除演出厅</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>票务管理</h3></a>
+                    <ul class="list">
+                        <a href="film.html"><li>售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                        <a href="javascript:void(0)" id="return"><li>退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>系统用户</h3></a>
+                    <ul class="list">
+                        <a href="tencent.html"><li>用户注册</li></a>
+                        <a href="删除账户.html"><li>注销用户</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>销售数据</h3></a>
+                </li>
+                <li>
+                    <a href="performance_plan.html"><h3>演出计划</h3></a>
+                    <ul class="list">
+                        <a href="performance_plan.html"><li>演出计划</li></a>
+                        <a href="javascript:void(0)" id="add-plan"><li>添加演出计划</li></a>
+                        <a href="javascript:void(0)" id="revise-plan"><li>修改演出计划</li></a>
+                        <a href="javascript:void(0)" id="delete-plan"><li>删除演出计划</li></a>
+                    </ul>
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+        <div class="movie">
+            <div class="movie-type">
+                <ul id="film-type">
+                    <a href="javascript:void(0)" id="bing-heat"><li>正在热映</li></a>
+                    <a href="javascript:void(0)" id="song"><li>即将上映</li></a>
+                </ul>
+            </div>
+            <div class="movie-warp" id="film-list"></div>
+        </div>
+        <div id="film-add">
+            <div class="drop-out">
+                <p id="operation-type-film">上架影片</p>
+                <a href="javascript:void(0)" id="log-off-film">×</a>
+            </div>
+      	<form id="form-action" action="form" method="post" enctype="multipart/form-data">
+                <div class="film-content">
+                    <div class="film-content-information">
+                        <ul>
+                            <li>导演<input type="text" id="director-film" name="dir" placeholder="导演"></li>
+                            <li>类型<input type="text" id="type-film" name="type" placeholder="类型"></li>
+                            <li>地区<input type="text" id="area-film" name="reg" placeholder="地区"></li>
+                            <li>语言<input type="text" id="language-film" name="lan" placeholder="语言"></li>
+                            <li>片长<input type="text" id="sheet-length-film" name="temp" placeholder="片长"></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="film-content-image">
+                        <div id="img-content"></div>
+                        <div class="image-choose"><a class="file">上传图片<input type="file" name="file2" id="image-film" ></a></div>
+                    </div>
+                </div>
+                <div class="film-content-submit">
+                                                        主演<input type="text" id="actor-film" name="per" placeholder="主演">
+                   	 影片名<input type="text" id="name-film" name="name" placeholder="影片名">
+                </div>
+                <div class="film-content-confirm">
+                    <button type="reset" id="film-reset">重&nbsp;置</button>
+                    <button type="submit" id="film-confirm">提&nbsp;交</button>
+          			<button type="submit" id="film-revise">修&nbsp;改</button>
+                </div>
+   				</form>
+        </div>
+         <div id="delete-film-name">
+            <a href="javascript:void(0)" id="delete-film-log-off">×</a>
+            <div>
+                <input type="text" id="delete-film-content" placeholder="影片名">
+                <button type="submit" id="confirm-delete-film">确&nbsp;认</button>
+            </div>
+        </div>
+        <div id="revise-film-name">
+            <a href="javascript:void(0)" id="film-log-off">×</a>
+            <div>
+                <input type="text" id="revise-film-content" placeholder="影片名">
+                <button type="submit" id="confirm-revise-film">确&nbsp;认</button>
+            </div>
+        </div>
+        <script src="js/film.js"></script>
+        <script src="js/film_add.js"></script> 
+        <script type="text/javascript">
+        
+
+        var filmList = document.getElementById("film-list");
+        var song = document.getElementById("song");
+        var bingHeat = document.getElementById("bing-heat");
+        var film = [];
+        
+        
+        function createFilmList(dataList) {
+            let str = '';
+
+            for(var i = 0,item;item = dataList[i++];) {
+            	film.push(item.name);
+                str += `<div class="father">
+                            <a href="javascript:void(0)">
+                            <div class="film-image"></div>
+                                <a href="javascript:void(0)"><div class="buy-tickets">
+                                    <span></span>
+                                </div></a>
+                                <div class="child">
+                                    <div class="child-content">
+                                    	<span>影片：${item.name}</span>
+                                        <span>导演：${item.director}</span>
+                                        <span>主演：${item.performer}</span>
+                                        <span>类型：${item.type}</span>
+                                        <span>地区：${item.region}</span>
+                                        <span>语言：${item.language}</span>
+                                        <span>片长：${item.time} 分钟</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>`
+            }
+
+            filmList.innerHTML = str;
+            console.log(film);
+        }
+        
+        
+        function getFilmList() {
+        	var getFilmXhr = new XMLHttpRequest();
+            getFilmXhr.open("GET","http://localhost:8080/TTMS/film_findall_servlet",true);
+            getFilmXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            getFilmXhr.send(null);
+            getFilmXhr.onreadystatechange = function() {
+            	if(getFilmXhr.readyState === 4 && getFilmXhr.status === 200) {
+            		var datalist = JSON.parse(getFilmXhr.responseText);
+            		//console.log(datalist[0].director);
+            		createFilmList(datalist);
+            		var clickPlan = document.getElementsByClassName("father");
+            		var num = 0;
+            		for(var i = 0,len = clickPlan.length;i < len;i++) {
+            			clickPlan[i].index = i;
+            			clickPlan[i].onclick = function() {
+            				num = this.index;
+            				CookieUtil.set("name",film[num]);
+            				window.location = "sale_Plan.html";
+            			}
+            		}
+            		var filmImage = document.getElementsByClassName("film-image");
+            		console.log(clickPlan.length);
+            		for(var i = 0,len = filmImage.length;i < len;i++) {
+            			filmImage[i].innerHTML = '<img src="data:image/jpg;base64,' + datalist[i].url + '" />';
+            		}
+            		fall();
+            	}
+            }
+        }
+        
+
+        getFilmList();
+        
+        function fall() {
+            var oFather = document.getElementsByClassName("father");
+            var oChild = document.getElementsByClassName("child");
+            var i, len, num;
+            for (i = 0, len = oFather.length; i < len; i++) {
+                oFather[i].index = i;
+                oFather[i].onmouseenter = function () {
+                    num = this.index;
+                    oChild[num].style.transition = 0.3 + "s";
+                    oChild[num].style.top = 0;
+                    this.onmouseleave = function () {
+                        oChild[num].style.top = -224 + "px";
+                        oChild[num].style.transition = 0.2 + "s";
+                    }
+                }
+            }
+        }
+       
+
+        /*
+         * cookie
+         * */
+         var CookieUtil = {
+             get: function(name) {
+                 var cookieName = encodeURIComponent(name) + "=",
+                     cookieStart = document.cookie.indexOf(cookieName),
+                     cookieValue = null;
+                 if(cookieStart > -1) {
+                     var cookieEnd = document.cookie.indexOf(";",cookieStart);
+                     if(cookieEnd == -1) {
+                         cookieEnd = document.cookie.length;
+                     }
+                     cookieValue = decodeURIComponent(document.cookie.substring(cookieStart
+                         +cookieName.length,cookieEnd));
+                 }
+                 return cookieValue;
+             },
+             set: function(name,value) {
+                 var cookieText = encodeURIComponent(name) + "=" +
+                         encodeURIComponent(value);
+                 document.cookie = cookieText;
+             }
+         };
+
+        bingHeat.onclick = function() {
+            createFilmList(datalist);
+            fall();
+            console.log(123);
+        }
+
+        song.onclick = function() {
+            createFilmList(data);
+            fall();
+            console.log(456);
+        }
+        </script>
+    </body>
+</html>

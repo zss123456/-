@@ -1,0 +1,35 @@
+/*
+            *   页脚样式
+            */
+.footer {
+    width: 1200px;
+    height: 150px;
+    margin: 100px auto;
+    padding-top: 10px;
+    background-color: #414141;
+}
+.footer ul {
+    display: flex;
+}
+.footer li span {
+    display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-family: 宋体;
+    color: white;
+    font-size: 14px;
+}
+.footer li {
+    border-right: 1px white solid;
+}
+.footer li span:hover {
+    color: orangered;
+}
+.footer li:nth-child(1) {
+    margin-left: 100px;
+}
+.footer li:nth-child(6) {
+    border-right: 0;
+}

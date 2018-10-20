@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <!--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="css/movie_hall_add.css">
+        <style>
+            body {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="javascript:void(0)" id="login">登录</a>
+        <div id="movie-hall-add">
+            <div class="drop-out">
+                <p>添加演出厅</p>
+                <a href="javascript:void(0)" id="log-off">×</a>
+            </div>
+            <div class="add-content">
+                <div class="add-name">演出厅名&nbsp;&nbsp;&nbsp;<input type="text" id="hall-name"></div>
+                <div class="add-seats">
+                    <div class="row-content">行数&nbsp;&nbsp;&nbsp;<input type="text" id="hall-rows"></div>
+                    <div class="column-content">列数&nbsp;&nbsp;&nbsp;<input type="text" id="hall-column"></div>
+                    <div class="seats-content">座位数量&nbsp;&nbsp;&nbsp;<input type="text" id="hall-seats"></div>
+                </div>
+                <div class="description-content">
+                    演出厅描述
+                    <div><textarea name="textarea" rows="4" id="hall-description"></textarea></div>
+                </div>
+                <div class="btn-content">
+                    <ul>
+                        <li><button type="reset" id="btn-reset">重&nbsp;&nbsp;&nbsp;置</button></li>
+                        <li><button type="submit" id="btn-submit">提&nbsp;&nbsp;&nbsp;交</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var oLogin = document.getElementById("login");
+            var add =  document.getElementById("movie-hall-add");
+            var logOff = document.getElementById("log-off");
+            oLogin.onclick = function() {
+                add.style.display = "block";
+            }
+            logOff.onclick = function() {
+                add.style.display = "none";
+            }
+
+            var hallName = document.getElementById("hall-name");
+            var hallRows = document.getElementById("hall-rows");
+            var hallColumn = document.getElementById("hall-column");
+            var hallSeats = document.getElementById("hall-seats");
+            var hallDescription = document.getElementById("hall-description");
+            var btnSubmit = document.getElementById("btn-submit");
+
+            btnSubmit.onclick = function(url) {
+                /*console.log(hallName.value);
+                console.log(hallRows.value);
+                console.log(hallColumn.value);
+                console.log(hallSeats.value);
+                console.log(hallDescription.value);*/
+
+                var addXhr = new XMLHttpRequest();
+                addXhr.open("POST",url,true);
+                addXhr.send();
+                addXhr.onreadystatechange = function() {
+                    if(addXhr.status == 200 && addXhr.readyState == 4) {
+
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

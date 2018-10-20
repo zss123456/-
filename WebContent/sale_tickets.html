@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>售票</title>
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(22,24,28);
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            #movie-hall-number {
+                width: 200px;
+                height: 50px;
+                margin: 50px auto 0;
+                line-height: 50px;
+                padding-left: 1000px;
+                background-color: white;
+            }
+            #movie-hall-number p {
+                font-family: 华文琥珀;
+                font-size: 20px;
+                color: orangered;
+            }
+            .sale-ticket {
+                position: relative;
+                width: 1200px;
+                margin: 0 auto 50px;
+                border: 1px saddlebrown solid;
+                background-color: white;
+            }
+            .sale-ticket #sale-ticket-seats {
+                width: 600px;
+                height: 500px;
+            }
+            .sale-ticket #sale-ticket-seats img {
+                width: 600px;
+                heigth: 20px;
+                margin-bottom: 5px;
+            }
+            .sale-ticket #seats-list ul.movie-seats {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 5px;
+            }
+            .sale-ticket #seats-list ul.movie-seats li {
+                width: 26px;
+                height: 25px;
+            }
+            .sale-ticket #seats-list ul.movie-seats li img {
+                width: 26px;
+                height: 25px;
+            }
+            .sale-ticket #sale-ticket-seats .seat-state {
+                display: flex;
+                position: absolute;
+                bottom: 5px;
+                height: 25px;
+                padding-left: 120px;
+            }
+            .sale-ticket #sale-ticket-seats .seat-state p {
+                display: flex;
+                display: block;
+                width: 140px;
+                height: 25px;
+                overflow: hidden;
+                margin: 0;
+            }
+            .sale-ticket #sale-ticket-seats .seat-state p span {
+                position: absolute;
+                top: 3px;
+                margin-left: 12px;
+                font-size: 16px;
+            }
+            .sale-ticket #sale-ticket-seats .seat-state p img {
+                width: 26px;
+                height: 25px;
+            }
+            .sale-ticket .sale-ticket-information {
+                position: absolute;
+                top: 0;
+                right: 5px;
+                width: 350px;
+                height: 500px;
+            }
+            .sale-ticket .sale-ticket-information .sale-ticket-movie{
+                position: relative;
+                width: 100%;
+                height: 224px;
+            }
+            .sale-ticket .sale-ticket-movie #ticket-movie-img {
+                width: 160px;
+                height: 224px;
+                overflow: hidden;
+                margin: 5px 0 0 5px;
+            }
+            .sale-ticket .sale-ticket-movie #ticket-movie-img img {
+                width: 160px;
+                height: 224px;
+                overflow: hidden;
+            }
+            .sale-ticket .sale-ticket-movie #ticket-movie-information {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 170px;
+                height: 224px;
+            }
+            .sale-ticket .sale-ticket-movie #ticket-movie-information span {
+                display: block;
+                width: 100%;
+                line-height: 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-family: 宋体;
+                color: #7180ff;
+                font-size: 14px;
+            }
+            .sale-ticket .sale-ticket-information .ticket-price-information {
+                width: 350px;
+                height: 240px;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: silver 2px solid;
+            }
+            .sale-ticket .ticket-price-information ul#ticket-seat {
+                display: flex;
+                flex-wrap: wrap;
+                height: 100px;
+            }
+            .sale-ticket .ticket-price-information ul#ticket-seat li {
+                width: 90px;
+                height: 40px;
+                margin-left: 20px;
+                text-align: center;
+                line-height: 40px;
+                border: 1px orangered solid;
+            }
+            .sale-ticket .ticket-price-information .ticket-price-warp,.sale-ticket .ticket-price-information .ticket-all-warp{
+                height: 47px;
+                padding-left: 20px;
+                line-height: 50px;
+                border-top: silver 2px solid;
+            }
+            .sale-ticket .ticket-price-information .ticket-all-confirm {
+                height: 47px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 16px;
+            }
+            .sale-ticket .ticket-price-information .ticket-all-confirm button {
+                width: 100px;
+                height: 36px;
+                outline: none;
+                padding: 0;
+                background-color: #5bc0de;
+                color: white;
+                box-shadow: 0 0 10px silver;
+                font-size: 16px;
+                border-radius: 10px;
+            }
+            .sale-ticket .ticket-price-information .ticket-all-warp {
+                border-bottom: silver 2px solid;
+            }
+            .sale-ticket .ticket-price-information .ticket-price-warp span {
+
+            }
+            #select-seat-tip {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 200px;
+                height: 60px;
+                line-height: 120px;
+                background-color: transparent;
+                transition: .7s;
+                opacity: 0;
+            }
+            #select-seat-tip p {
+                width: 200px;
+                height: 30px;
+                margin: 0;
+                text-align: center;
+                line-height: 30px;
+                color: orangered;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="nav">
+            <div class="logo">
+                <img src="TIM图片20180615070011.png" alt="东方影业集团">东方传媒影业
+            </div>
+            <ul class="title">
+                <li>
+                    <a href="main-interface.html"><h3>首&nbsp;&nbsp;页</h3></a>
+                </li>
+                <li>
+                    <a href="film.html"><h3>影&nbsp;&nbsp;片</h3></a>
+                    <ul class="list">
+                        <a href="film.html" ><li>影&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</li></a>
+                        <a href="javascript:void(0)" id="add-film"><li>添加影片</li></a>
+                        <a href="javascript:void(0)" id="revise-film"><li>修改影片</li></a>
+                        <a href="javascript:void(0)" id="delete-film"><li>删除影片</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="movie_hall.html"><h3>演出厅</h3></a>
+                    <ul class="list">
+                        <a href="movie_hall.html"><li>演&nbsp;出&nbsp;厅</li></a>
+                        <a href="javascript:void(0)" id="add-hall"><li>添加演出厅</li></a>
+                        <a href="javascript:void(0)" id="revise-hall"><li>修改演出厅</li></a>
+                        <a href="javascript:void(0)" id="delete-hall"><li>删除演出厅</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>票务管理</h3></a>
+                    <ul class="list">
+                        <a href="film.html"><li>售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                        <a href="javascript:void(0)" id="return"><li>退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>系统用户</h3></a>
+                    <ul class="list">
+                        <a href="tencent.html"><li>用户注册</li></a>
+                        <a href="删除账户.html"><li>注销用户</li></a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><h3>销售数据</h3></a>
+                </li>
+                <li>
+                    <a href="performance_plan.html"><h3>演出计划</h3></a>
+                    <ul class="list">
+                        <a href="performance_plan.html"><li>演出计划</li></a>
+                        <a href="javascript:void(0)" id="add-plan"><li>添加演出计划</li></a>
+                        <a href="javascript:void(0)" id="revise-plan"><li>修改演出计划</li></a>
+                        <a href="javascript:void(0)" id="delete-plan"><li>删除演出计划</li></a>
+                    </ul>
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+        <div id="movie-hall-number">
+            <p id="movie-hall-id"></p>
+        </div>
+        <div class="sale-ticket">
+            <div id="sale-ticket-seats">
+                <img src="images/02102.png">
+                <div id="seats-list"></div>
+                <div class="seat-state">
+                    <p><img src="images/12119.png"> <span>可选</span></p>
+                    <p><img src="images/12113.png"> <span>不可选</span></p>
+                    <p><img src="images/12345.png"> <span>已选</span></p>
+                </div>
+            </div>
+            <div class="sale-ticket-information">
+                <div class="sale-ticket-movie">
+                    <div id="ticket-movie-img">
+                        <img src="images\Bing-heat\16.jpg" alt="西小河的夏天">
+                    </div>
+                    <div id="ticket-movie-information"></div>
+                </div>
+                <div class="ticket-price-information">
+                    <ul id="ticket-seat"></ul>
+                    <div class="ticket-price-warp">
+                        <span id="ticket-price">票价：28元/张</span>
+                    </div>
+                    <div class="ticket-all-warp">
+                        <span id="ticket-all-price">金额：0 × 28元/张 = 0元</span>
+                    </div>
+                    <div class="ticket-all-confirm">
+                        <button type="submit" id="ticket-confirm">确认购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="select-seat-tip">
+            <p>不要贪心哦!</p>
+            <p>最多只可选择6个座位</p>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var movieContent = document.getElementById("movie-content");
+        var movieSeats = document.getElementsByClassName("movie-seats");
+        var seatsList = document.getElementById("seats-list");
+        var ticketSeat = document.getElementById("ticket-seat");
+        var ticketPricr = document.getElementById("ticket-price");
+        var ticketAllPrice = document.getElementById("ticket-all-price");
+
+        var movieHallId = document.getElementById("movie-hall-id");
+        var ticketMovieInfomation = document.getElementById("ticket-movie-information");
+        var ticketMovieImage = document.getElementById("ticket-movie-img");
+        var ticketConfirm = document.getElementById("ticket-confirm");
+
+        var selectSeatTip = document.getElementById("select-seat-tip");
+        var num = 0,number = 0,count = 0,index = 0,change = 0;
+       
+        /*
+        * 字符串转数字
+        * */
+        function stringChangeNumber(string) {
+            return Number(string);
+        }
+
+        /*
+        * 生成座位信息
+        * */
+        function changePrice(row,col) {
+            var str = document.createElement("li");
+            str.innerText = row+"排"+col+"座";
+            str.order = count;
+            ticketSeat.appendChild(str);
+        }
+
+        //发送请求
+        function getAllInformation() {
+            var informationXhr = new XMLHttpRequest();
+            informationXhr.open("POST","http://localhost:8080/TTMS/seat_return_film_theatre_servlet",true);
+            informationXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            informationXhr.send("id="+CookieUtil.get("id")+"&name="+CookieUtil.get("name")+"&start="+CookieUtil.get("start"));
+            informationXhr.onreadystatechange = function() {
+                if(informationXhr.readyState === 4 && informationXhr.status === 200) {
+					var datalist = (informationXhr.responseText).split("#");
+					console.log(datalist);
+					var dataInformation = JSON.parse(datalist[1]);
+					var dataMovie = JSON.parse(datalist[0]);
+					var stateInformation = JSON.parse(datalist[2]);
+					//console.log(stateInformation);
+					createFilmInformation(dataInformation,dataMovie,stateInformation)
+                }
+            }
+        }
+        /*
+        * 生成影片信息
+        * */
+        function createFilmInformation(dataInformation,dataMovie,stateInformation) {
+            var str = "";
+
+            str += `<span>影片：${dataInformation.name}</span>
+                        <span>导演：${dataInformation.director}</span>
+                        <span>主演：${dataInformation.performer}</span>
+                        <span>类型：${dataInformation.type}</span>
+                        <span>地区：${dataInformation.region}</span>
+                        <span>语言：${dataInformation.language}</span>
+                        <span>片长：${dataInformation.time}分钟</span>`
+
+            movieHallId.innerHTML = "00"+CookieUtil.get("id")+"号影厅";
+            ticketMovieInfomation.innerHTML = str;
+            change = dataMovie.cols;
+            createMovieSeatsList(dataMovie.rows,dataMovie.cols,stateInformation);
+
+            ticketMovieImage.innerHTML = '<img src="data:image/jpg;base64,'+dataInformation.url+'"/>';
+        }
+        /*
+        * 自动生成座位
+        * */
+        function createMovieSeatsList(row,col,stateInformation) {
+            seatsList.innerHTML = "";
+            row = row >= 14 ? 14 : row;
+            col = col >= 21 ? 21 : col;
+            for(var i = 0;i < row;i++) {
+                var str = "";
+                var ul = document.createElement("ul");
+                for(var j = 0;j < col;j++) {
+                    str += "<li><img src=\"images\\12119.png\"></li>";
+                }
+                ul.className = "movie-seats";
+                ul.innerHTML = str;
+                seatsList.appendChild(ul);
+            }
+            var allSeats = seatsList.getElementsByTagName("img");
+			
+            if(stateInformation != null) {
+            	for(var i = 0,len = stateInformation.length;i < len;i++) {
+            		allSeats[stateInformation[i].number].src = "images\\12345.png";
+            		allSeats[stateInformation[i].number].state = 2;
+            	}
+            }
+            
+            
+            var numOrder = [];
+            //点击座位时的状态变化
+            for(var k = 0,len = allSeats.length;k < len;k++) {
+                allSeats[k].serial = k;
+                if(allSeats[k].state !== 2) {
+                	allSeats[k].state = 0;   //初始化每个座位的状态为“未选”
+                }
+                allSeats[k].onclick = function() {
+                    var row,col;
+                    number = this.serial;
+                    if(this.state && count <= 6 && this.state !== 2) {        //已选
+                    	
+                    	var deleteXhr = new XMLHttpRequest();
+                    	deleteXhr.open("POST","http://localhost:8080/TTMS/seat_delete_servlet",true);
+                    	deleteXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                    	deleteXhr.send("id="+CookieUtil.get("id")+"&start="+CookieUtil.get("start")
+                    			+"&number="+number);
+                    	deleteXhr.onreadystatechange = function() {
+                    		if(deleteXhr.readyState === 4 && deleteXhr.status === 200) {
+                    			
+                    		}
+                    	}
+                    	
+                    
+                    	
+                        allSeats[number].src = "images\\12119.png";
+                        this.state = 0;
+                        count--;
+                        if(count >= 0) {
+                            num = count*28;
+                            ticketAllPrice.innerHTML = "金额："+count+" × 28元/张 = "+num+"元";
+                        }
+                        var oLi = ticketSeat.getElementsByTagName("li");
+                        ticketSeat.removeChild(oLi[this.order-1]);
+                        index = this.order;
+
+                        /*
+                        * 动态删除已选座位
+                        * */
+                        for(var i = 0,len = numOrder.length;i < len;i++) {  //实时更新已选座位的顺序
+                            if((i+1) > index) {
+                                allSeats[numOrder[i]].order--;
+                            }
+                        }
+                        numOrder.splice(index-1,1);   //从已选座位列表里移除要删除的座位
+
+                    } else if(count >= 6) {
+                        selectSeatTip.style.opacity = 1;
+                        setTimeout(function() {
+                            selectSeatTip.style.opacity = 0;
+                        },2000);
+                    } else if(count < 6 && this.state !== 2){           //未选
+
+                    	console.log(this.state);
+                    	var saleXhr = new XMLHttpRequest();
+                    	saleXhr.open("POST","http://localhost:8080/TTMS/seat_insert_servlet",true);
+                    	saleXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                    	saleXhr.send("id="+CookieUtil.get("id")+"&start="+CookieUtil.get("start")
+                    			+"&number="+number+"&state="+1);
+                    	saleXhr.onreadystatechange = function() {
+                    		if(saleXhr.readyState === 4 && saleXhr.status === 200) {
+                    			
+                    		}
+                    	}
+                  
+                    	
+                        row = Math.floor(number/change)+1;
+                        col = number%change+1;
+                        changePrice(row,col);
+                        allSeats[number].src = "images\\12345.png";
+                        this.state = 1;
+                        count++;
+                        num = count*28;
+                        ticketAllPrice.innerHTML = "金额："+count+" × 28元/张 = "+num+"元";
+                        numOrder.push(number);   //记录已选座位的序号
+                        this.order = count;      //座位的选取顺序
+                    }
+                }
+            }        
+            }
+        
+        ticketConfirm.onclick = function() {
+        	window.location = "sale_tickets.html";
+        }
+        
+        
+
+        var CookieUtil = {
+            get: function(name) {
+                var cookieName = encodeURIComponent(name) + "=",
+                    cookieStart = document.cookie.indexOf(cookieName),
+                    cookieValue = null;
+                if(cookieStart > -1) {
+                    var cookieEnd = document.cookie.indexOf(";",cookieStart);
+                    if(cookieEnd == -1) {
+                        cookieEnd = document.cookie.length;
+                    }
+                    cookieValue = decodeURIComponent(document.cookie.substring(cookieStart
+                        +cookieName.length,cookieEnd));
+
+                }
+                return cookieValue;
+            },
+            set: function(name,value) {
+                var cookieText = encodeURIComponent(name) + "=" +
+                    encodeURIComponent(value);
+                document.cookie = cookieText;
+            }
+        };
+
+        
+        getAllInformation();
+        
+        //let allSeats = seatsList.getElementsByTagName("img");
+        /*var numOrder = [];
+
+        console.log(allSeats.length);
+        //点击座位时的状态变化
+        for(var k = 0,len = allSeats.length;k < len;k++) {
+            allSeats[k].serial = k;
+            allSeats[k].state = 0;   //初始化每个座位的状态为“未选”
+
+            allSeats[k].onclick = function() {
+                var row,col;
+                number = this.serial;
+
+
+                if(this.state && count <= 6) {        //已选
+                    allSeats[number].src = "images\\12119.png";
+                    this.state = 0;
+                    count--;
+                    if(count >= 0) {
+                        num = count*28;
+                        ticketAllPrice.innerHTML = "金额："+count+" × 28元/张 = "+num+"元";
+                    }
+
+                    var oLi = ticketSeat.getElementsByTagName("li");
+                    ticketSeat.removeChild(oLi[this.order-1]);
+                    index = this.order;
+
+                    /*
+                    * 动态删除已选座位
+                    * */
+                   /*for(var i = 0,len = numOrder.length;i < len;i++) {  //实时更新已选座位的顺序
+                        if((i+1) > index) {
+                            allSeats[numOrder[i]].order--;
+                        }
+                    }
+                    numOrder.splice(index-1,1);   //从已选座位列表里移除要删除的座位
+
+                } else if(count >= 6) {
+                    selectSeatTip.style.opacity = 1;
+                    setTimeout(function() {
+                        selectSeatTip.style.opacity = 0;
+                    },2000);
+                } else if(count < 6){           //未选
+
+                    row = Math.floor(number/change)+1;
+                    col = number%change+1;
+                    changePrice(row,col);
+                    allSeats[number].src = "images\\12345.png";
+                    this.state = 1;
+                    count++;
+                    num = count*28;
+                    ticketAllPrice.innerHTML = "金额："+count+" × 28元/张 = "+num+"元";
+                    numOrder.push(number);   //记录已选座位的序号
+                    this.order = count;      //座位的选取顺序
+                }
+            }
+        }*/
+
+        console.log(CookieUtil.get("id"));
+        console.log(CookieUtil.get("name"));
+        console.log(CookieUtil.get("start"));
+    </script>
+</html>
